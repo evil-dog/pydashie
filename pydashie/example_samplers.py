@@ -1,52 +1,52 @@
 from dashie_sampler import DashieSampler
 
-import random
 import collections
+import random
 
-class SynergySampler(DashieSampler):
+class PoolTempSampler(DashieSampler):
     def __init__(self, *args, **kwargs):
         DashieSampler.__init__(self, *args, **kwargs)
-        self._last = 0
 
     def name(self):
-        return 'synergy'
+        return 'Pool_Temp'
 
     def sample(self):
-        s = {'value': random.randint(0, 100),
-             'current': random.randint(0, 100),
-             'last': self._last}
-        self._last = s['current']
+        s = {'value': random.randint(0, 100)}
         return s
 
-class BuzzwordsSampler(DashieSampler):
-    def name(self):
-        return 'buzzwords'
+class SolarTempSampler(DashieSampler):
+  def __init__(self, *args, **kwargs):
+    DashieSampler.__init__(self, *args, **kwargs)
 
-    def sample(self):
-        my_little_pony_names = ['Rainbow Dash',
-                                'Blossomforth',
-                                'Derpy',
-                                'Fluttershy',
-                                'Lofty',
-                                'Scootaloo',
-                                'Skydancer']
-        items = [{'label': pony_name, 'value': random.randint(0, 20)} for pony_name in my_little_pony_names]
-        random.shuffle(items)
-        return {'items':items}
+  def name(self):
+    return 'Solar_Temp'
 
-class ConvergenceSampler(DashieSampler):
-    def name(self):
-        return 'convergence'
+  def sample(self):
+    s = {'value': random.randint(0, 100)}
+    return s
 
-    def __init__(self, *args, **kwargs):
-        self.seedX = 0
-        self.items = collections.deque()
-        DashieSampler.__init__(self, *args, **kwargs)
+class WeatherSampler(DashieSampler):
+  def __init__(self, *args, **kwargs):
+    DashieSampler.__init__(self, *args, **kwargs)
 
-    def sample(self):
-        self.items.append({'x': self.seedX,
-                           'y': random.randint(0,20)})
-        self.seedX += 1
-        if len(self.items) > 10:
-            self.items.popleft()
-        return {'points': list(self.items)}
+  def name(self):
+    return 'weather'
+
+  def sample(self):
+    s = {
+      'now_temp': 80,
+      'humidity': 40,
+      'temp_low': 20,
+      'temp_high': 90,
+      'precip': 30,
+      'icon': 'cloudy',
+      'tomorrow_temp_low': 25,
+      'tomorrow_temp_high': 85,
+      'tomorrow_icon': 'clear',
+      'tomorrow_precip': 24,
+      'wind_speed': 50,
+      'wind_speed_gust': 100,
+      'wind_dir': 'NE',
+    }
+
+    return s

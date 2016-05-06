@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="clock" data-view="Clock"></div>
+    </li>
+
+    <li data-row="1" data-col="3" data-sizex="2" data-sizey="2">
+      <div data-id="weather" data-view="Weather"></div>
+    </li>
+
+    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
+      <div data-id="Pool_Light" data-view="Text" data-title="Pool Light" data-text="on/off"></div>
+    </li>
+
+    <li data-row="1" data-col="6" data-sizex="2" data-sizey="1">
+      <div data-id="Pool_Heat" data-view="Text" data-title="Pool Heat" data-text="on/off"></div>
+    </li>
+
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="Pool_Temp" data-view="Mytemp" data-title="Pool Temp"></div>
+    </li>
+
+    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="Solar_Temp" data-view="Mytemp" data-title="Solar Temp"></div>
+    </li>
+
+    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
+      <div data-id="Stereo_Power" data-view="Text" data-title="Stereo Power" data-text="on/off"></div>
+    </li>
+    
+    <li data-row="2" data-col="7" data-sizex="2" data-sizey="1">
+      <div data-id="Stereo_Vol" data-view="Text" data-title="Stereo Power" data-text="+/-"></div>
+    </li>
+
+    <li data-row="3" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="Unknown1" data-view="Text" data-title="???"></div>
+    </li>
+
+    <li data-row="3" data-col="3" data-sizex="4" data-sizey="2">
+      <div data-id="Chromecast_Info" data-view="Text" data-title="Chromecast Info"></div>
+    </li>
+
+    <li data-row="3" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="Stereo_Sources" data-view="Changepage" data-icon="arrow-right" data-title="Stereo Sources" data-page="2" data-stagger="false" data-fasttransition="true" style="background-color:#085C61"></div>
+    </li>
+
+    <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="Pool_Pump" data-view="Text" data-title="Pool Pump" data-text="on/off"></div>
+    </li>
+
+    <li data-row="4" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="Pool_Cleaner" data-view="Text" data-title="Pool Cleaner" data-text="on/off"></div>
+    </li>
+
+    <li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="link-home-dashboard" data-view="Text" data-icon="arrow-right" data-title="Home" onclick="location.href='/dashboard/home/'" style="background-color:#364B59"></div>
+    </li>
+  </ul>
+</div>
+
+<div class="gridster">
+  <ul>
+
+    <li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cpage2" data-view="Changepage" data-icon="arrow-right" data-title="Back" data-page="1" data-stagger="false" data-fasttransition="true" style="background-color:#085C61"></div>
+    </li>
+  </ul>
+</div>
+{% endblock %}
